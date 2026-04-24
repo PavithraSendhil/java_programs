@@ -1,0 +1,19 @@
+package Numbers;
+
+public class Maxprodsubarr {
+
+	public static void main(String[] args) {
+int[] nums= {2,3,-2,4};
+System.out.println(maxProduct(nums));
+	}
+public static int maxProduct(int[] nums) {
+	int maxProduct=nums[0],minProduct=nums[0],result=nums[0];
+	for(int i=1;i<nums.length;i++) {
+		int temp=maxProduct;
+		maxProduct=Math.max(Math.max(nums[i],maxProduct*nums[i]),minProduct*nums[i]);
+		minProduct=Math.min(Math.min(nums[i], temp*nums[i]),minProduct*nums[i]);
+		result=Math.max(result, maxProduct);
+	}
+	return result;
+}
+}
